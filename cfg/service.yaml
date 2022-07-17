@@ -1,0 +1,21 @@
+server:
+  name: grin-captcha-service
+  host: 192.168.1.102
+  port: 8082
+
+registry:
+  provider: etcd
+  endpoint: ["http://192.168.1.102:2379"]
+  path: config
+  timeout: 30
+
+log:
+  path: "./log/"
+  level: 4
+  color: true
+  collar: false
+
+redis:
+  addr: 192.168.1.102:6379
+  pass:
+  db: 0
