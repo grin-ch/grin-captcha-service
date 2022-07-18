@@ -1,7 +1,7 @@
 server:
   name: grin-captcha-service
   host: 192.168.1.102
-  port: 8083
+  port: 8082
 
 registry:
   provider: etcd
