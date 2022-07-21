@@ -36,7 +36,7 @@ func grpcServer(c *cfg.ServerConfig) error {
 	initLogger(c.LogPath, c.LogLevel, c.LogColor, c.LogCaller)
 
 	// grpc listener
-	grpcListener, err := net.Listen("tcp", fmt.Sprintf("%s:%d", c.Host, c.Port))
+	grpcListener, err := net.Listen("tcp", fmt.Sprintf("0.0.0.0:%d", c.Port))
 	if err != nil {
 		log.Errorf("tcp listen err:%s", err.Error())
 		return err

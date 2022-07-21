@@ -1,7 +1,7 @@
 server:
   name: grin-captcha-service
   host: 192.168.1.102
-  port: 8082
+  port: 8083
 
 registry:
   provider: etcd
@@ -16,6 +16,6 @@ log:
   collar: true
 
 redis:
-  addr: 192.168.1.102:6379
+  addr: 192.168.1.103:6379
   pass:
   db: 0
