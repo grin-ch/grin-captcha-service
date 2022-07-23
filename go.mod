@@ -3,12 +3,12 @@ module github.com/grin-ch/grin-captcha-service
 go 1.18
 
 require (
+	github.com/afocus/captcha v0.0.0-20191010092841-4bd1f21c8868
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/grin-ch/grin-api v0.0.0-20220525142835-e811f0c4ce12
 	github.com/grin-ch/grin-etcd-center v0.0.0-20220718143413-5e600f151ba3
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
-	github.com/lifei6671/gocaptcha v0.2.0
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/viper v1.11.0

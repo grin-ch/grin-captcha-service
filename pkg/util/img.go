@@ -2,35 +2,36 @@ package util
 
 import (
 	"bytes"
+	"image/png"
 	"io"
 
-	"github.com/lifei6671/gocaptcha"
+	"github.com/afocus/captcha"
+)
+
+var (
+	cap *captcha.Captcha
 )
 
 const (
-	width  = 144
-	height = 48
+	width  = 120
+	height = 40
 )
 
-func NewImg(content string) ([]byte, error) {
-	return NewImgWithSize(content, width, height)
+func NewImg(text string) ([]byte, error) {
+	return newImg(text)
 }
 
-func NewImgWithSize(content string, w, h int) ([]byte, error) {
-	captchaImage := gocaptcha.NewCaptchaImage(w, h, gocaptcha.RandLightColor())
-	//画边框
-	captchaImage.DrawBorder(gocaptcha.ColorToRGB(0x17A7A7A))
-
-	//噪点
-	captchaImage.DrawLine(3)
-	captchaImage.DrawNoise(gocaptcha.CaptchaComplexHigh)
-
-	captchaImage.DrawText(content)
-
+func newImg(text string) ([]byte, error) {
+	img := cap.CreateCustom(text)
 	var b bytes.Buffer
-	err := captchaImage.SaveImage(io.Writer(&b), gocaptcha.ImageFormatJpeg)
-	if err != nil {
+	if err := png.Encode(io.Writer(&b), img); err != nil {
 		return nil, err
 	}
 	return b.Bytes(), nil
+}
+
+func init() {
+	cap = captcha.New()
+	cap.SetSize(width, height)
+	_ = cap.AddFontFromBytes(COMICSAN)
 }

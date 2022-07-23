@@ -19,6 +19,13 @@ var (
 		'V', 'W', 'X', 'Y', 'Z',
 	}
 	nums = []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	easy_read = []byte{
+		'A', 'B', 'C', 'D', 'E', 'F',
+		'G', 'H', 'J', 'K', 'L', 'M',
+		'N', 'P', 'Q', 'R', 'S', 'T',
+		'U', 'V', 'W', 'X', 'Y', 'Z',
+	}
 )
 
 func NumSet() []int {
@@ -31,6 +38,10 @@ func LowerSet() []byte {
 
 func UpperSet() []byte {
 	return upper
+}
+
+func EasyRead() []byte {
+	return easy_read
 }
 
 func GenFormSet[T any](l int, src []T) []T {

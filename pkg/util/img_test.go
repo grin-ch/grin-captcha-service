@@ -7,7 +7,7 @@ import (
 )
 
 func TestNewImg(t *testing.T) {
-	src, err := NewImg("hello world!")
+	src, err := NewImg("HELL")
 	if err != nil {
 		fmt.Println(err.Error())
 		return

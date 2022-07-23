@@ -33,7 +33,7 @@ func (s *captchaService) AsyncCode(ctx context.Context, req *captcha.AsyncCodeRe
 
 // 图形验证码
 func (s *captchaService) GraphCaptcha(ctx context.Context, req *captcha.GraphCaptchaReq) (*captcha.GraphCaptchaRsp, error) {
-	text := util.GenFormSet(4, util.LowerSet())
+	text := util.GenFormSet(4, util.EasyRead())
 	// 设置key,value
 	key := md5Str(text)
 	val := string(text)
